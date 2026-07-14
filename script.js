@@ -4,7 +4,7 @@ let currentMonth = today.getMonth();
 
 let currentYear = today.getFullYear();
 
-// 所有活動
+
 
 let events = JSON.parse(localStorage.getItem("events")) || {};
 
@@ -33,7 +33,7 @@ function renderCalendar(){
 
     let row=document.createElement("tr");
 
-    // 空白
+    
 
     for(let i=0;i<firstDay;i++){
 
