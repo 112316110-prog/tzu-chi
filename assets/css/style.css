@@ -1,251 +1,874 @@
+/* ==============================
+   全域設定
+============================== */
+
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
-    font-family: "Microsoft JhengHei", Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333333;
+    min-height: 100%;
 }
 
-/* 上方藍色標頭 */
-.site-header {
-    background-color: #0b3a78;
-    color: white;
+body {
+    font-family:
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        Arial,
+        sans-serif;
+
+    background-color: #edf3f8;
+    color: #26394d;
 }
 
-/* 控制標頭內容寬度與排列 */
-.header-inner {
-    width: 1200px;
-    min-height: 64px;
-    margin: 0 auto;
+
+/* ==============================
+   上方標頭
+============================== */
+
+header {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.top-bar {
+    width: 100%;
+    min-height: 74px;
+
+    padding: 0 38px;
+
+    background-color: #07447f;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* 左側 Logo 與網站名稱 */
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+
+/* 網站名稱 */
+
+.logo h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 29px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-/* 圓形 Logo */
-.brand-logo {
-    width: 42px;
-    height: 42px;
 
-    border: 2px solid white;
-    border-radius: 50%;
+/* 搜尋與登入區 */
+
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.search-area input {
+    width: 224px;
+    height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d8e0e8;
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.search-area input:focus {
+    border-color: #6ca0d2;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108, 160, 210, 0.15);
+}
+
+.search-area button {
+    height: 34px;
+
+    padding: 0 22px;
+
+    border: 1px solid #1761a6;
+    border-radius: 5px;
+
+    background-color: #125798;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.search-area button:hover {
+    background-color: #0d4b87;
+}
+
+
+/* ==============================
+   上方導覽列
+============================== */
+
+nav {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border-bottom: 1px solid #c9d9e8;
+}
+
+nav ul {
+    min-height: 50px;
+
+    margin: 0;
+    padding: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    gap: 20px;
+
+    list-style: none;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+
+    padding: 16px 17px 13px;
+
+    border-bottom: 3px solid transparent;
+
+    color: #314961;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #07447f;
+    background-color: #f5f9fd;
+
+    border-bottom-color: #8ab4d9;
+}
+
+nav a.active {
+    color: #07447f;
+
+    font-weight: bold;
+
+    border-bottom-color: #07447f;
+}
+
+
+/* ==============================
+   主要頁面
+============================== */
+
+.layout {
+    width: calc(100% - 80px);
+
+    margin: 18px auto 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        215px
+        minmax(0, 1fr);
+
+    gap: 16px;
+
+    align-items: start;
+}
+
+
+/* ==============================
+   左側功能選單
+============================== */
+
+aside {
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid #b7cee4;
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(25, 55, 85, 0.08);
+}
+
+aside > h3 {
+    margin: 0;
+
+    padding: 11px 14px;
+
+    background-color: #07447f;
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.menu {
+    padding: 12px 12px 14px;
+}
+
+.menu h4 {
+    margin: 0;
+
+    padding: 10px 6px 6px 12px;
+
+    border-left: 4px solid #0b579d;
+
+    color: #07447f;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0 0 7px;
+
+    list-style: none;
+}
+
+.menu li {
+    margin: 0;
+
+    border-bottom: 1px solid #e5ebf1;
+}
+
+.menu a {
+    display: block;
+
+    padding: 7px 8px 7px 20px;
+
+    color: #465b70;
+
+    text-decoration: underline;
+
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.menu a:hover {
+    color: #07447f;
+    background-color: #edf5fc;
+}
+
+
+/* ==============================
+   右側主要內容
+============================== */
+
+main {
+    min-width: 0;
+}
+
+
+/* ==============================
+   公告與消息區域
+============================== */
+
+/* 兩張公告卡片左右並排 */
+
+.news {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 16px;
+}
+
+
+/* 通用卡片 */
+
+.card {
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid #d1dce7;
+    border-radius: 9px;
+
+    box-shadow:
+        0 3px 10px
+        rgba(26, 54, 82, 0.09);
+}
+
+
+/* 行事曆與新增事項標題 */
+
+.card > h2 {
+    margin: 0;
+
+    padding: 17px 18px 13px;
+
+    color: #07447f;
 
     font-size: 20px;
     font-weight: bold;
 }
 
-/* 網站名稱 */
-.brand-title {
-    font-size: 24px;
+
+/* 公告卡片作為定位基準 */
+
+.news .notice {
+    position: relative;
+}
+
+
+/* 公告標題列 */
+
+.news .notice .card-title-row {
+    width: 100%;
+    min-height: 58px;
+
+    padding: 16px 120px 8px 18px;
+
+    display: block;
+}
+
+
+/* 公告標題文字 */
+
+.news .notice .card-title-row h2 {
+    margin: 0;
+    padding: 0;
+
+    color: #07447f;
+
+    font-size: 20px;
     font-weight: bold;
-    letter-spacing: 1px;
+    line-height: 30px;
 }
 
-/* 右側搜尋框與登入按鈕 */
-.header-right {
-    display: flex;
+
+/* 更多公告／更多消息固定右側 */
+
+.news .notice .card-title-row .more-button {
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    width: auto;
+    height: 28px;
+
+    margin: 0;
+    padding: 0 10px;
+
+    display: inline-flex;
     align-items: center;
-    gap: 18px;
-}
+    justify-content: center;
 
-/* 搜尋區塊 */
-.search-box {
-    display: flex;
-    height: 34px;
-}
-
-/* 搜尋輸入框 */
-.search-box input {
-    width: 240px;
-    padding: 0 12px;
-
-    border: none;
-    border-radius: 4px 0 0 4px;
-
-    outline: none;
-}
-
-/* 搜尋按鈕 */
-.search-box button {
-    padding: 0 14px;
-
-    border: none;
-    border-radius: 0 4px 4px 0;
-
-    background-color: white;
-    color: #0b3a78;
-
-    cursor: pointer;
-}
-
-/* 登入按鈕 */
-.login-button {
-    height: 34px;
-    padding: 0 18px;
-
-    border: 1px solid white;
+    border: 1px solid #b7c9da;
     border-radius: 4px;
 
-    background-color: transparent;
-    color: white;
+    background-color: #f4f8fc;
+    color: #07447f;
+
+    font-family: inherit;
+    font-size: 12px;
 
     cursor: pointer;
 }
 
-/* 滑鼠移到登入按鈕 */
-.login-button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+.news .notice .card-title-row .more-button:hover {
+    border-color: #7fa6c9;
+    background-color: #e5f0fa;
 }
-/* 主選單列 */
-.main-nav {
-    width: 100%;
-    background-color: white;
-    border-bottom: 1px solid #d9e1eb;
+
+
+/* 公告清單 */
+
+.notice ul {
+    margin: 0;
+
+    padding: 6px 18px 16px;
+
+    list-style: none;
+}
+
+
+/* 單筆公告 */
+
+.notice li {
+    min-height: 39px;
+
+    padding: 9px 0;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-}
+    justify-content: space-between;
 
-/* 主選單連結 */
-.main-nav a {
-    padding: 14px 18px;
+    gap: 15px;
 
-    color: #2f4054;
-    text-decoration: none;
-
-    font-size: 15px;
-
-    border-bottom: 3px solid transparent;
-}
-
-/* 滑鼠移入 */
-.main-nav a:hover {
-    color: #0b3a78;
-    background-color: #f4f7fb;
-}
-
-/* 目前所在頁面 */
-.main-nav a.active {
-    color: #0b3a78;
-    font-weight: bold;
-    border-bottom-color: #0b3a78;
-}
-/* 首頁主要版面 */
-.page-container {
-    width: 1200px;
-    margin: 18px auto 40px;
-
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 18px;
-}
-
-/* 左側功能選單 */
-.sidebar {
-    background-color: #f8fbff;
-
-    border: 1px solid #afc7e2;
-    border-radius: 5px;
-
-    overflow: hidden;
-}
-
-/* 功能選單標題 */
-.sidebar-title {
-    padding: 10px 14px;
-
-    background-color: #0b3a78;
-    color: white;
-
-    text-align: center;
-    font-weight: bold;
-}
-
-/* 每個選單群組 */
-.menu-group {
-    padding: 10px 14px;
-
-    border-bottom: 1px solid #d8e4f0;
-}
-
-/* 最後一個群組不要底線 */
-.menu-group:last-child {
-    border-bottom: none;
-}
-
-/* 群組標題 */
-.menu-group h2 {
-    margin: 0 0 6px;
-
-    color: #0b3a78;
+    border-bottom: 1px solid #dfe5eb;
 
     font-size: 14px;
 }
 
-/* 左側連結 */
-.menu-group a {
-    display: block;
-
-    padding: 4px 4px 4px 18px;
-
-    color: #34495e;
-    text-decoration: none;
-
-    font-size: 12px;
-    line-height: 1.4;
-
-    position: relative;
+.notice li:last-child {
+    border-bottom: none;
 }
 
-/* 連結前的小圓點 */
-.menu-group a::before {
-    content: "•";
 
-    position: absolute;
-    left: 6px;
+/* 公告標題 */
 
-    color: #506a85;
+.notice li span:first-child {
+    min-width: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: #293d50;
 }
 
-/* 滑鼠移入 */
-.menu-group a:hover {
-    color: #0b3a78;
-    background-color: #eaf2fb;
+
+/* 公告日期 */
+
+.notice li span:last-child {
+    flex-shrink: 0;
+
+    color: #222222;
+
+    font-size: 13px;
 }
 
-/* 右側內容 */
-.main-content {
+
+/* ==============================
+   行事曆與新增事項區域
+============================== */
+
+.calendar-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 3fr)
+        minmax(260px, 1fr);
+
+    gap: 16px;
+
+    align-items: start;
+}
+
+.calendar-area,
+.form-area {
     min-width: 0;
 }
 
-/* 暫時測試區塊 */
-.content-placeholder {
-    min-height: 500px;
 
-    background-color: white;
+/* ==============================
+   行事曆月份標頭
+============================== */
 
-    border: 1px solid #d4deea;
-    border-radius: 6px;
+.calendar-header {
+    padding: 3px 18px 16px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #888888;
+    gap: 18px;
+}
+
+.calendar-header h2 {
+    min-width: 135px;
+
+    margin: 0;
+
+    color: #07447f;
+
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.calendar-header button {
+    width: 37px;
+    height: 31px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #07447f;
+    color: #ffffff;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background-color: #0d5b9f;
+}
+
+
+/* ==============================
+   行事曆表格
+============================== */
+
+#calendar {
+    width: calc(100% - 36px);
+
+    margin: 0 18px 18px;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+#calendar th,
+#calendar td {
+    border: 1px solid #d8dee5;
+}
+
+#calendar th {
+    height: 39px;
+
+    background-color: #d4e7fb;
+    color: #07447f;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#calendar td {
+    height: 102px;
+
+    padding: 6px;
+
+    background-color: #ffffff;
+
+    vertical-align: top;
+
+    color: #222222;
+
+    font-size: 14px;
+}
+
+
+/* 日期數字 */
+
+.date {
+    margin-bottom: 5px;
+
+    color: #111111;
+
+    font-size: 14px;
+}
+
+
+/* 今日日期 */
+
+.today {
+    background-color: #edf6ff !important;
+}
+
+.today .date {
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    background-color: #07447f;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+/* 行事曆活動 */
+
+.event-item {
+    margin-top: 4px;
+
+    padding: 4px 6px;
+
+    border-left: 3px solid #3f83bf;
+    border-radius: 3px;
+
+    background-color: #dcecff;
+    color: #174c7b;
+
+    font-size: 11px;
+    line-height: 1.35;
+
+    word-break: break-word;
+}
+
+
+/* 活動顏色 */
+
+.event-item:nth-child(3n + 1) {
+    border-left-color: #d99a17;
+
+    background-color: #fff0c8;
+    color: #72510a;
+}
+
+.event-item:nth-child(3n + 2) {
+    border-left-color: #5d9b68;
+
+    background-color: #dff0df;
+    color: #38633f;
+}
+
+.event-item:nth-child(3n + 3) {
+    border-left-color: #4c82b8;
+
+    background-color: #dcecff;
+    color: #174c7b;
+}
+
+
+/* ==============================
+   新增行事曆事項
+============================== */
+
+.event-form {
+    padding: 6px 18px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.event-form label {
+    margin-top: 3px;
+
+    color: #07447f;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event-form input {
+    width: 100%;
+    height: 37px;
+
+    padding: 0 10px;
+
+    border: 1px solid #c7cfd8;
+    border-radius: 5px;
+
+    background-color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.event-form input:focus {
+    border-color: #4586c0;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(69, 134, 192, 0.12);
+}
+
+.event-form button {
+    width: 100%;
+    height: 35px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #07447f;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.event-form button:hover {
+    background-color: #0d5b9f;
+}
+
+
+/* 若 HTML 中仍有 eventList，先隱藏 */
+
+.event-list {
+    display: none;
+}
+
+
+/* ==============================
+   Footer
+============================== */
+
+footer {
+    width: 100%;
+
+    padding: 18px;
+
+    background-color: #07447f;
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   中型螢幕
+============================== */
+
+@media screen and (max-width: 1200px) {
+
+    .layout {
+        width: calc(100% - 32px);
+
+        grid-template-columns:
+            220px
+            minmax(0, 1fr);
+    }
+
+    .top-bar {
+        padding: 0 25px;
+    }
+
+}
+
+
+/* ==============================
+   平板版面
+============================== */
+
+@media screen and (max-width: 950px) {
+
+    .top-bar {
+        padding: 16px 20px;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+
+        gap: 3px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .news {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==============================
+   手機版面
+============================== */
+
+@media screen and (max-width: 600px) {
+
+    .logo h1 {
+        font-size: 22px;
+    }
+
+    .search-area {
+        width: 100%;
+    }
+
+    .search-area input {
+        flex: 1;
+
+        width: auto;
+        min-width: 0;
+    }
+
+    nav a {
+        padding: 11px 8px;
+
+        font-size: 13px;
+    }
+
+    .layout {
+        width: calc(100% - 18px);
+
+        margin-top: 10px;
+    }
+
+    .news .notice .card-title-row {
+        padding-right: 105px;
+    }
+
+    .news .notice .card-title-row .more-button {
+        right: 12px;
+    }
+
+    #calendar {
+        width: calc(100% - 16px);
+
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    #calendar th {
+        font-size: 12px;
+    }
+
+    #calendar td {
+        height: 70px;
+
+        padding: 3px;
+
+        font-size: 12px;
+    }
+
+    .event-item {
+        padding: 2px;
+
+        font-size: 9px;
+    }
+
 }
