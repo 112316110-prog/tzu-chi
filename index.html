@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教學部資訊平台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="top-bar">
+
+<div class="logo">
+<h1>教學部資訊平台</h1>
+</div>
+
+<div class="search-area">
+
+<input type="text" placeholder="搜尋...">
+
+<button>登入</button>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>首頁</li>
+<li>關於我們</li>
+<li>教學與學習資源</li>
+<li>教學訓練中心</li>
+<li>學術會議與活動</li>
+<li>服務與支援</li>
+<li>系統與外部連結</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<div class="layout">
+
+
+<aside>
+
+<h3>功能選單</h3>
+
+<div class="menu">
+
+<h4>關於我們</h4>
+
+<ul>
+<li>教學部簡介</li>
+<li>組織架構</li>
+<li>各科主任</li>
+<li>聯絡資訊</li>
+</ul>
+
+<h4>教學與學習資源</h4>
+
+<ul>
+<li>數位學習平台</li>
+<li>電子圖書館</li>
+<li>醫學教育資源</li>
+</ul>
+
+<h4>教學訓練中心</h4>
+
+<ul>
+<li>全人醫療教育</li>
+<li>PGY課程</li>
+<li>標準化病人</li>
+<li>臨床技能中心</li>
+</ul>
+
+<h4>學術活動</h4>
+
+<ul>
+<li>研討會</li>
+<li>教學競賽</li>
+<li>教育活動</li>
+</ul>
+
+<h4>服務支援</h4>
+
+<ul>
+<li>下載專區</li>
+<li>常見問題</li>
+</ul>
+
+</div>
+
+</aside>
+
+<!-- 中間 -->
+
+<main>
+
+<div class="news">
+
+<section class="card notice">
+
+<h2>📢 最新公告</h2>
+
+<ul>
+
+<li><span>教學部會議通知</span><span>2026/06/20</span></li>
+
+<li><span>PGY課程調整公告</span><span>2026/06/18</span></li>
+
+<li><span>系統維護公告</span><span>2026/06/15</span></li>
+
+<li><span>師資培育工作坊報名</span><span>2026/06/10</span></li>
+
+<li><span>會議室借用申請說明</span><span>2026/06/05</span></li>
+
+</ul>
+
+</section>
+
+<section class="card notice">
+
+<h2>📄 最新消息</h2>
+
+<ul>
+
+<li><span>教學部與醫院合作計畫</span><span>2026/06/20</span></li>
+
+<li><span>醫學教育研討會開放報名</span><span>2026/06/18</span></li>
+
+<li><span>新增線上課程</span><span>2026/06/15</span></li>
+
+<li><span>臨床技能競賽活動</span><span>2026/06/12</span></li>
+
+<li><span>教師成長工作坊</span><span>2026/06/08</span></li>
+
+</ul>
+
+</section>
+
+</div>
+
+<div class="calendar-layout">
+
+    <!-- 左 -->
+    <div class="calendar-area">
+
+        <section class="card">
+
+            <h2>📅 行事曆</h2>
+
+            <div class="calendar-header">
+                <button id="prevMonth">◀</button>
+
+                <h2 id="monthTitle"></h2>
+
+                <button id="nextMonth">▶</button>
+            </div>
+
+            <table id="calendar">
+
+                <thead>
+
+                    <tr>
+                        <th>日</th>
+                        <th>一</th>
+                        <th>二</th>
+                        <th>三</th>
+                        <th>四</th>
+                        <th>五</th>
+                        <th>六</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </div>
+
+    <!-- 右 -->
+
+    <div class="form-area">
+
+        <section class="card">
+
+            <h2>📌 新增行事曆事項</h2>
+
+            <div class="event-form">
+
+                <label>日期</label>
+
+                <input type="date" id="eventDate">
+
+                <label>事項</label>
+
+                <input
+                    type="text"
+                    id="eventText"
+                    placeholder="請輸入活動名稱">
+
+                <button id="addEvent">
+                    新增事項
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+
+</main>
+
+</div>
+
+<footer>
+
+教學部資訊平台 © 2026
+
+</footer>
+
+</body>
+</html>
