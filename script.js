@@ -156,3 +156,15 @@ document.getElementById("addEvent").onclick=function(){
     document.getElementById("eventText").value="";
 
 }
+
+function showIntro(){
+
+    // 隱藏首頁內容
+    document.querySelector(".news").style.display="none";
+    document.querySelector(".calendar-layout").style.display="none";
+
+
+    // 顯示教學部簡介
+    document.getElementById("introContent").style.display="block";
+
+}
