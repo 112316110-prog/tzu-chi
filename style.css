@@ -359,3 +359,142 @@ footer{
 .intro-content li{
     margin:8px 0;
 }
+
+
+.director-search{
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:flex-end;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+
+}
+
+
+.search-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.director-search label{
+
+    font-weight:bold;
+
+    color:#003b78;
+
+    margin-bottom:5px;
+
+}
+
+
+.director-search input,
+.director-search select{
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+    font-size:15px;
+
+    min-width:150px;
+
+}
+
+
+.director-search button{
+
+    padding:10px 25px;
+
+    background:#003b78;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+.director-search button:hover{
+
+    background:#0b4da1;
+
+}
+
+.pdf-viewer{
+    margin-top:30px;
+}
+
+.pdf-viewer embed{
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.org-table,
+.staff-table,
+.work-table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+
+.org-table th,
+.org-table td,
+.staff-table td,
+.work-table th,
+.work-table td{
+
+    border:1px solid #ccc;
+    padding:12px;
+    vertical-align:top;
+
+}
+
+
+.org-table th,
+.work-table th{
+
+    background:#e8f1ff;
+
+}
+
+
+.staff-table td{
+
+    width:50%;
+    line-height:1.8;
+
+}
+
+
+.work-table td:nth-child(2){
+
+    line-height:1.8;
+    text-align:left;
+
+}
+
+
+h3{
+
+    margin-top:30px;
+
+}

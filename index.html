@@ -51,9 +51,9 @@
 
 <ul>
 <li onclick="showIntro()">教學部簡介</li>
-<li>組織架構</li>
-<li>各科各級訓練計畫主持人</li>
-<li>全人照護定義</li>
+<li onclick="showOrganization()">教學部組織架構</li>
+<li onclick="showTrainingDirector()">各科各級訓練計畫主持人</li>
+<li onclick="showWholeCare()">全人照護定義</li>
 </ul>
 
 
@@ -110,7 +110,6 @@
 
 </aside>
 
-<!-- 中間 -->
 
 <main>
 
@@ -119,7 +118,7 @@
 <h2>佛教慈濟醫療財團法人花蓮慈濟醫院教學部簡介</h2>
 
 <p>
-    佛教慈濟綜合醫院自開創啟業從事醫療志業服務以來，在證嚴    上人 的精神感召下，結合眾多的醫護專業人員及志工 ，本著「 尊重生命」的理念，在花東地區落實以病人為中心的急性醫療及社區醫療照顧，使傷患得到適切的照護，成就卓越倍受肯定。並於2002年升格為醫學中心。本著上人教育理想要培養有愛心、肯犧牲奉獻的良醫，花蓮慈濟綜合醫院努力推動臨床醫學教育暨落實臨床教學品質，於2004年7月1日經由院長室指導在醫務部一位助理協助之下草創，並於2005年8月1日在院長室大力支持下遷至大愛六樓正式設立教學部，設立之後除積極推動臨床醫學教育外，亦一直扮演慈濟大學醫學 院的主要實習教學醫院迄今。
+    佛教慈濟綜合醫院自開創啟業從事醫療志業服務以來，在證嚴上人的精神感召下，結合眾多的醫護專業人員及志工 ，本著「 尊重生命」的理念，在花東地區落實以病人為中心的急性醫療及社區醫療照顧，使傷患得到適切的照護，成就卓越倍受肯定。並於2002年升格為醫學中心。本著上人教育理想要培養有愛心、肯犧牲奉獻的良醫，花蓮慈濟綜合醫院努力推動臨床醫學教育暨落實臨床教學品質，於2004年7月1日經由院長室指導在醫務部一位助理協助之下草創，並於2005年8月1日在院長室大力支持下遷至大愛六樓正式設立教學部，設立之後除積極推動臨床醫學教育外，亦一直扮演慈濟大學醫學 院的主要實習教學醫院迄今。
 </p>
 
 <br>
@@ -154,6 +153,765 @@
 </p>
 
 </div>
+
+<div id="trainingDirectorContent" class="card intro-content" style="display:none;">
+
+    <h2>各科各級訓練計畫主持人</h2>
+
+    <div class="director-search">
+
+    <div class="search-item">
+        <label>查詢方式</label>
+        <select id="searchType">
+            <option>科別+日期</option>
+            <option>科別+時間</option>
+            <option>地點+日期</option>
+            <option>地點+時間</option>
+            <option>科別+地點+日期</option>
+            <option>科別+地點+日期+時間</option>
+            <option>依科別</option>
+            <option>依地點</option>
+            <option>依時間</option>
+        </select>
+    </div>
+
+    <div class="search-item">
+        <label>科別</label>
+        <select id="department">
+            <option>請選擇科別</option>
+            <option>一般醫學內科</option>
+            <option>全院</option>
+            <option>內科</option>
+            <option>神經科</option>
+            <option>外科</option>
+            <option>神經外科</option>
+            <option>整形外科</option>
+            <option>婦產科</option>
+            <option>小兒科</option>
+            <option>家醫科</option>
+            <option>骨科</option>
+            <option>復健科</option>
+            <option>眼科</option>
+            <option>耳鼻喉科</option>
+            <option>牙科</option>
+            <option>皮膚科</option>
+            <option>泌尿科</option>
+            <option>放射腫瘤科</option>
+            <option>精神醫學部</option>
+        </select>
+    </div>
+
+    <div class="search-item">
+        <label>地點</label>
+        <input type="text">
+    </div>
+
+    <div class="search-item">
+        <label>時間</label>
+        <input type="text">
+    </div>
+
+    <div class="search-item">
+        <label>年度</label>
+        <select id="yearSelect"></select>
+    </div>
+
+    <div class="search-item">
+        <label>月份</label>
+        <select id="monthSelect"></select>
+    </div>
+
+    <div class="search-item button-area">
+        <button>查詢</button>
+    </div>
+
+  </div>
+
+    <hr>
+
+<h3>114學年各科各級訓練計畫主持人名單</h3>
+
+<div class="pdf-viewer">
+    <embed
+        src="pdf/114學年各科各級訓練計畫主持人名單(1140716公告).pdf"
+        type="application/pdf"
+        width="100%"
+        height="900px">
+</div>
+
+</div>
+
+<div id="wholeCareContent" class="card intro-content" style="display:none;">
+
+<h2>全人照護定義</h2>
+
+
+<div class="director-search">
+
+
+<div class="search-item">
+
+<label>查詢方式</label>
+
+<select id="careSearchType">
+
+<option>科別+日期</option>
+<option>科別+時間</option>
+<option>地點+日期</option>
+<option>地點+時間</option>
+<option>科別+地點+日期</option>
+<option>科別+地點+日期+時間</option>
+<option>依科別</option>
+<option>依地點</option>
+<option>依時間</option>
+
+</select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>科別</label>
+
+<select>
+
+<option>請選擇科別</option>
+<option>一般醫學內科</option>
+<option>全院</option>
+<option>內科</option>
+<option>神經科</option>
+<option>外科</option>
+<option>神經外科</option>
+<option>整形外科</option>
+<option>婦產科</option>
+<option>小兒科</option>
+<option>家醫科</option>
+<option>骨科</option>
+<option>復健科</option>
+<option>眼科</option>
+<option>耳鼻喉科</option>
+<option>牙科</option>
+<option>皮膚科</option>
+<option>泌尿科</option>
+<option>放射腫瘤科</option>
+<option>精神醫學部</option>
+
+</select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>地點</label>
+
+<input type="text" placeholder="請輸入地點">
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>時間</label>
+
+<input type="text" placeholder="例如：08:00">
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>年度</label>
+
+<select id="careYearSelect"></select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>月份</label>
+
+<select id="careMonthSelect"></select>
+
+</div>
+
+
+
+<div class="search-item button-area">
+
+<button>查詢</button>
+
+</div>
+
+</div>
+
+
+<hr>
+
+
+<h3>
+全人照護相關資料
+</h3>
+<div class="pdf-viewer">
+    <embed
+        src="pdf/全人照護定義.pdf"
+        type="application/pdf"
+        width="100%"
+        height="900px">
+</div>
+
+</div>
+
+<div id="organizationContent" class="card intro-content" style="display:none;">
+
+<h2>教學部組織架構</h2>
+
+
+<div class="director-search">
+
+
+<div class="search-item">
+
+<label>查詢方式</label>
+
+<select id="orgSearchType">
+
+<option>科別+日期</option>
+<option>科別+時間</option>
+<option>地點+日期</option>
+<option>地點+時間</option>
+<option>科別+地點+日期</option>
+<option>科別+地點+日期+時間</option>
+<option>依科別</option>
+<option>依地點</option>
+<option>依時間</option>
+
+</select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>科別</label>
+
+<select id="orgDepartment">
+
+<option>請選擇科別</option>
+
+<option>一般醫學內科</option>
+<option>全院</option>
+<option>內科</option>
+<option>神經科</option>
+<option>外科</option>
+<option>神經外科</option>
+<option>整形外科</option>
+<option>婦產科</option>
+<option>小兒科</option>
+<option>家醫科</option>
+<option>骨科</option>
+<option>復健科</option>
+<option>眼科</option>
+<option>耳鼻喉科</option>
+<option>牙科</option>
+<option>皮膚科</option>
+<option>泌尿科</option>
+<option>放射腫瘤科</option>
+<option>精神醫學部</option>
+
+</select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>地點</label>
+
+<input type="text" placeholder="請輸入地點">
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>時間</label>
+
+<input type="text" placeholder="例如：08:00">
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>年度</label>
+
+<select id="orgYearSelect"></select>
+
+</div>
+
+
+
+<div class="search-item">
+
+<label>月份</label>
+
+<select id="orgMonthSelect"></select>
+
+</div>
+
+
+
+<div class="search-item button-area">
+
+<button>查詢</button>
+
+</div>
+
+
+</div>
+
+
+<hr>
+
+
+<hr>
+
+<table class="organization-table">
+
+<thead>
+<tr>
+    <th>職稱</th>
+    <th>姓名</th>
+    <th>聯絡方式</th>
+</tr>
+</thead>
+
+
+<tbody>
+
+<tr>
+    <td>副院長</td>
+    <td>陳宗鷹</td>
+    <td>
+        與我連絡：
+        <a href="mailto:chen7110@tzuchi.com.tw">
+        chen7110@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>部主任</td>
+    <td>朱紹盈</td>
+    <td>
+        -
+    </td>
+</tr>
+
+
+<tr>
+    <td>行政主任</td>
+    <td>林雅萍</td>
+    <td>
+        分機：13646<br>
+        與我連絡：
+        <a href="mailto:yungping_lin@tzuchi.com.tw">
+        yungping_lin@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>組長</td>
+    <td>王苓雅</td>
+    <td>
+        分機：13645<br>
+        與我連絡：
+        <a href="mailto:ya_wang407@tzuchi.com.tw">
+        ya_wang407@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+</tbody>
+
+</table>
+
+<br>
+
+
+<table class="organization-table">
+
+<thead>
+<tr>
+    <th>姓名</th>
+    <th>聯絡方式</th>
+    <th>姓名</th>
+    <th>聯絡方式</th>
+</tr>
+</thead>
+
+
+<tbody>
+
+
+<tr>
+    <td>蔡宜蓉<br>（分機：13645）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:rong070616@tzuchi.com.tw">
+        rong070616@tzuchi.com.tw
+        </a>
+    </td>
+
+    <td>李旨雲<br>（分機：13644）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:chihyun@tzuchi.com.tw">
+        chihyun@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>陳惠珍<br>（分機：13667）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:hueizhen@tzuchi.com.tw">
+        hueizhen@tzuchi.com.tw
+        </a>
+    </td>
+
+    <td>謝惠婷<br>（分機：13666）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:ava_ht@tzuchi.com.tw">
+        ava_ht@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>謝淳宇<br>（分機：13639）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:chunyu060@tzuchi.com.tw">
+        chunyu060@tzuchi.com.tw
+        </a>
+    </td>
+
+    <td>葉嘉鳳<br>（分機：13629）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:gigi007@tzuchi.com.tw">
+        gigi007@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>黃以婕<br>（分機：13643）</td>
+    <td>
+        與我連絡：
+        @tzuchi.com.tw
+    </td>
+
+    <td>黃欣雅<br>（分機：13626）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:hsinya@tzuchi.com.tw">
+        hsinya@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>施郁絜<br>（分機：13690）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:mignon83@tzuchi.com.tw">
+        mignon83@tzuchi.com.tw
+        </a>
+    </td>
+
+    <td>陳王軒<br>（分機：13628）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:satc830227@tzuchi.com.tw">
+        satc830227@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+<tr>
+    <td>陳俐羽<br>（分機：12121）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:rani37jason@tzuchi.com.tw">
+        rani37jason@tzuchi.com.tw
+        </a>
+    </td>
+
+    <td>林瑀慈<br>（分機：12122）</td>
+    <td>
+        與我連絡：
+        <a href="mailto:s10343010@tzuchi.com.tw">
+        s10343010@tzuchi.com.tw
+        </a>
+    </td>
+</tr>
+
+
+</tbody>
+
+</table>
+
+
+<table class="work-table">
+
+
+<tr>
+<th>姓名</th>
+<th>負責業務</th>
+<th>分機</th>
+</tr>
+
+
+<tr>
+<td>林雅萍</td>
+
+<td>
+一、協調督導五大中心業務進度<br>
+二、督導大體手術教學中心業務<br>
+三、督導慈大實習醫學生(含後中醫)相關業務
+</td>
+
+<td>13646</td>
+</tr>
+
+
+
+<tr>
+<td>王苓雅</td>
+
+<td>
+一、督導師資培育中心業務<br>
+二、綜理師資培育(含一般醫學師資訓練)業務<br>
+三、全人照護(醫療)<br>
+四、整合實習醫學生、PGY、住院醫師、醫事人員教學業務<br>
+五、行政業務(ISO、專案、工作計畫進度)<br>
+六、醫學教育委員會
+</td>
+
+<td>13645</td>
+</tr>
+
+
+
+<tr>
+<td>李旨雲</td>
+
+<td>
+一、辦理實習醫學生巧手盃競賽<br>
+二、擬真訓練課程<br>
+三、模型教具管理<br>
+四、辦理急救訓練課程
+</td>
+
+<td>13644</td>
+</tr>
+
+
+
+<tr>
+<td>葉嘉鳳</td>
+
+<td>
+一、慈大實習醫學生(含後中醫)相關業務<br>
+二、大體模擬手術中心相關業務<br>
+三、超音波工作坊(1次/年)
+</td>
+
+<td>13629</td>
+</tr>
+
+
+
+<tr>
+<td>蔡宜蓉</td>
+
+<td>
+一、一般醫學師資訓練(40+7)<br>
+二、醫學教育研究行政業務推動<br>
+三、客座教授<br>
+四、教職申請<br>
+五、高教深耕計畫<br>
+六、東區醫療網計畫教育訓練
+</td>
+
+<td>13645</td>
+</tr>
+
+
+
+<tr>
+<td>陳惠珍</td>
+
+<td>
+一、臨床醫事人員培訓<br>
+二、全人醫療<br>
+三、跨領域團隊合作訓練<br>
+四、醫事教育委員會
+</td>
+
+<td>13667</td>
+</tr>
+
+
+
+<tr>
+<td>謝惠婷</td>
+
+<td>
+一、綜理標準化病人中心業務<br>
+二、綜理(每週四)全院性學術演講安排/學分申請<br>
+三、東區醫療網計畫教育訓練
+</td>
+
+<td>13666</td>
+</tr>
+
+
+
+<tr>
+<td>黃以婕</td>
+
+<td>
+一、辦理院外實習醫學生各項業務<br>
+二、住院醫師業務<br>
+三、綜理教學門診相關業務<br>
+四、綜理住診教學相關業務<br>
+五、諮商輔導行政處理<br>
+六、教學部部務會議
+</td>
+
+<td>13643</td>
+</tr>
+
+
+
+<tr>
+<td>黃欣雅</td>
+
+<td>
+一、畢業後一般醫學訓練計畫(PGY)專任助理
+</td>
+
+<td>13626</td>
+</tr>
+
+
+
+<tr>
+<td>謝淳宇</td>
+
+<td>
+一、OSCE訓練與OSCE國考相關業務<br>
+二、特殊教室管理<br>
+三、全院臨床技能課程安排<br>
+四、學習成效：80項技能→課程地圖
+</td>
+
+<td>13639</td>
+</tr>
+
+
+
+<tr>
+<td>施郁絜</td>
+
+<td>
+一、本院各類學術活動、研究成果、學術論文海報、教學相關海報製作之設計、美工製作及輸出事項<br>
+二、辦理全院數位學習(e-Learning)業務
+</td>
+
+<td>13690</td>
+</tr>
+
+
+
+<tr>
+<td>陳王軒</td>
+
+<td>
+一、督導臨床技能中心業務<br>
+二、督導教材室業務<br>
+三、綜理全院數位學習(e-Learning)業務<br>
+四、教學部相關教學網站製作及後端維護作業<br>
+五、教學部一般教室管理<br>
+六、教學部設備管理<br>
+七、創新教學業務開發<br>
+八、虛擬病人教案開發<br>
+九、E-Portfolio資訊窗口
+</td>
+
+<td>13628</td>
+</tr>
+
+
+
+<tr>
+<td>陳俐羽</td>
+
+<td>
+一、綜理圖書館業務(含圖書管理委員會)<br>
+二、電子資源/參考諮詢<br>
+三、實證醫學業務<br>
+四、科基金管理(財務)
+</td>
+
+<td>12121</td>
+</tr>
+
+
+
+<tr>
+<td>林瑀慈</td>
+
+<td>
+一、綜理圖書館業務(含圖書管理委員會)<br>
+二、實證醫學業務<br>
+三、流通業務
+</td>
+
+<td>12122</td>
+</tr>
+
+
+</table>
+
+</div>
+
 
 <div class="news">
 
@@ -275,8 +1033,6 @@
 
 </div>
 
-<script src="script.js"></script>
-
 </main>
 
 </div>
@@ -287,5 +1043,6 @@
 
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
