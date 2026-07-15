@@ -498,3 +498,46 @@ h3{
     margin-top:30px;
 
 }
+
+.teaching-table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+.teaching-table th,
+.teaching-table td{
+
+    border:1px solid #ccc;
+    padding:12px;
+    vertical-align:top;
+
+}
+
+.teaching-table th{
+
+    background:#0b6fa4;
+    color:#fff;
+    text-align:center;
+
+}
+
+.teaching-table td{
+
+    line-height:2;
+}
+
+.teaching-table a{
+
+    color:#0066cc;
+    text-decoration:none;
+
+}
+
+.teaching-table a:hover{
+
+    text-decoration:underline;
+
+}

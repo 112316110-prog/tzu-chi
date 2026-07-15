@@ -363,53 +363,42 @@ function hideAllContent(){
     let pages = [
 
         "searchContent",
-
         "introContent",
-
         "trainingDirectorContent",
-
         "wholeCareContent",
-
-        "organizationContent"
+        "organizationContent",
+        "teachingMaterialContent",
+        "internalMedicineContent"
 
     ];
 
-
     pages.forEach(function(id){
 
-        let element =
-            document.getElementById(id);
+        let element = document.getElementById(id);
 
         if(element){
 
-            element.style.display =
-                "none";
+            element.style.display = "none";
 
         }
 
     });
 
 
-    let news =
-        document.querySelector(".news");
+    let news = document.querySelector(".news");
 
     if(news){
 
-        news.style.display =
-            "none";
+        news.style.display = "none";
 
     }
 
 
-    let calendar =
-        document.querySelector(
-            ".calendar-layout"
-        );
+    let calendar = document.querySelector(".calendar-layout");
 
     if(calendar){
 
-        calendar.style.display =
-            "none";
+        calendar.style.display = "none";
 
     }
 
@@ -422,54 +411,40 @@ function showHome(){
     let pages = [
 
         "searchContent",
-
         "introContent",
-
         "trainingDirectorContent",
-
         "wholeCareContent",
-
-        "organizationContent"
+        "organizationContent",
+        "teachingMaterialContent",
+        "internalMedicineContent"
 
     ];
 
 
     pages.forEach(function(id){
 
-        let element =
-            document.getElementById(id);
+        let element = document.getElementById(id);
 
         if(element){
 
-            element.style.display =
-                "none";
+            element.style.display = "none";
 
         }
 
     });
 
 
-    let news =
-        document.querySelector(".news");
+    let news = document.querySelector(".news");
 
     if(news){
-
-        news.style.display =
-            "flex";
-
+        news.style.display = "flex";
     }
 
 
-    let calendar =
-        document.querySelector(
-            ".calendar-layout"
-        );
+    let calendar = document.querySelector(".calendar-layout");
 
     if(calendar){
-
-        calendar.style.display =
-            "flex";
-
+        calendar.style.display = "flex";
     }
 
 }
@@ -586,5 +561,24 @@ function showOrganization(){
             "block";
 
     }
+
+}
+
+
+
+function showTeachingMaterial() {
+
+    hideAllContent();
+
+    document.getElementById("teachingMaterialContent").style.display = "block";
+
+}
+
+
+function showInternalMedicine(){
+
+    hideAllContent();
+
+    document.getElementById("internalMedicineContent").style.display = "block";
 
 }
