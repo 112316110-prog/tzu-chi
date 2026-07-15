@@ -38,12 +38,16 @@
 
 <div class="menu">
 
-<h4>首頁</h4>
+<h4>主要功能</h4>
 
 <ul>
-<li>佈告欄</li>
-<li>最新消息</li>
-<li>行事曆</li>
+    <li onclick="showHome()">
+        首頁
+    </li>
+
+    <li onclick="showSearch()">
+        查詢
+    </li>
 </ul>
 
 
@@ -112,7 +116,111 @@
 
 
 <main>
+<div id="searchContent"
+     class="card intro-content"
+     style="display:none;">
 
+    <h2>查詢</h2>
+
+    <div class="director-search">
+
+        <div class="search-item">
+
+            <label>查詢方式</label>
+
+            <select id="searchType">
+                <option>科別+日期</option>
+                <option>科別+時間</option>
+                <option>地點+日期</option>
+                <option>地點+時間</option>
+                <option>科別+地點+日期</option>
+                <option>科別+地點+日期+時間</option>
+                <option>依科別</option>
+                <option>依地點</option>
+                <option>依時間</option>
+            </select>
+
+        </div>
+
+        <div class="search-item">
+
+            <label>科別</label>
+
+            <select id="department">
+
+                <option value="">請選擇科別</option>
+                <option>一般醫學內科</option>
+                <option>全院</option>
+                <option>內科</option>
+                <option>神經科</option>
+                <option>外科</option>
+                <option>神經外科</option>
+                <option>整形外科</option>
+                <option>婦產科</option>
+                <option>小兒科</option>
+                <option>家醫科</option>
+                <option>骨科</option>
+                <option>復健科</option>
+                <option>眼科</option>
+                <option>耳鼻喉科</option>
+                <option>牙科</option>
+                <option>皮膚科</option>
+                <option>泌尿科</option>
+                <option>放射腫瘤科</option>
+                <option>精神醫學部</option>
+
+            </select>
+
+        </div>
+
+        <div class="search-item">
+
+            <label>地點</label>
+
+            <input type="text"
+                   id="searchLocation"
+                   placeholder="請輸入地點">
+
+        </div>
+
+        <div class="search-item">
+
+            <label>時間</label>
+
+            <input type="text"
+                   id="searchTime"
+                   placeholder="例如：08:00">
+
+        </div>
+
+        <div class="search-item">
+
+            <label>年度</label>
+
+            <select id="yearSelect"></select>
+
+        </div>
+
+        <div class="search-item">
+
+            <label>月份</label>
+
+            <select id="monthSelect"></select>
+
+        </div>
+
+        <div class="search-item button-area">
+
+            <button type="button"
+                    id="directorSearchButton">
+                查詢
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
     <div id="introContent" class="card intro-content" style="display:none;">
 
 <h2>佛教慈濟醫療財團法人花蓮慈濟醫院教學部簡介</h2>
@@ -158,75 +266,6 @@
 
     <h2>各科各級訓練計畫主持人</h2>
 
-    <div class="director-search">
-
-    <div class="search-item">
-        <label>查詢方式</label>
-        <select id="searchType">
-            <option>科別+日期</option>
-            <option>科別+時間</option>
-            <option>地點+日期</option>
-            <option>地點+時間</option>
-            <option>科別+地點+日期</option>
-            <option>科別+地點+日期+時間</option>
-            <option>依科別</option>
-            <option>依地點</option>
-            <option>依時間</option>
-        </select>
-    </div>
-
-    <div class="search-item">
-        <label>科別</label>
-        <select id="department">
-            <option>請選擇科別</option>
-            <option>一般醫學內科</option>
-            <option>全院</option>
-            <option>內科</option>
-            <option>神經科</option>
-            <option>外科</option>
-            <option>神經外科</option>
-            <option>整形外科</option>
-            <option>婦產科</option>
-            <option>小兒科</option>
-            <option>家醫科</option>
-            <option>骨科</option>
-            <option>復健科</option>
-            <option>眼科</option>
-            <option>耳鼻喉科</option>
-            <option>牙科</option>
-            <option>皮膚科</option>
-            <option>泌尿科</option>
-            <option>放射腫瘤科</option>
-            <option>精神醫學部</option>
-        </select>
-    </div>
-
-    <div class="search-item">
-        <label>地點</label>
-        <input type="text">
-    </div>
-
-    <div class="search-item">
-        <label>時間</label>
-        <input type="text">
-    </div>
-
-    <div class="search-item">
-        <label>年度</label>
-        <select id="yearSelect"></select>
-    </div>
-
-    <div class="search-item">
-        <label>月份</label>
-        <select id="monthSelect"></select>
-    </div>
-
-    <div class="search-item button-area">
-        <button>查詢</button>
-    </div>
-
-  </div>
-
     <hr>
 
 <h3>114學年各科各級訓練計畫主持人名單</h3>
@@ -244,114 +283,6 @@
 <div id="wholeCareContent" class="card intro-content" style="display:none;">
 
 <h2>全人照護定義</h2>
-
-
-<div class="director-search">
-
-
-<div class="search-item">
-
-<label>查詢方式</label>
-
-<select id="careSearchType">
-
-<option>科別+日期</option>
-<option>科別+時間</option>
-<option>地點+日期</option>
-<option>地點+時間</option>
-<option>科別+地點+日期</option>
-<option>科別+地點+日期+時間</option>
-<option>依科別</option>
-<option>依地點</option>
-<option>依時間</option>
-
-</select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>科別</label>
-
-<select>
-
-<option>請選擇科別</option>
-<option>一般醫學內科</option>
-<option>全院</option>
-<option>內科</option>
-<option>神經科</option>
-<option>外科</option>
-<option>神經外科</option>
-<option>整形外科</option>
-<option>婦產科</option>
-<option>小兒科</option>
-<option>家醫科</option>
-<option>骨科</option>
-<option>復健科</option>
-<option>眼科</option>
-<option>耳鼻喉科</option>
-<option>牙科</option>
-<option>皮膚科</option>
-<option>泌尿科</option>
-<option>放射腫瘤科</option>
-<option>精神醫學部</option>
-
-</select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>地點</label>
-
-<input type="text" placeholder="請輸入地點">
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>時間</label>
-
-<input type="text" placeholder="例如：08:00">
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>年度</label>
-
-<select id="careYearSelect"></select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>月份</label>
-
-<select id="careMonthSelect"></select>
-
-</div>
-
-
-
-<div class="search-item button-area">
-
-<button>查詢</button>
-
-</div>
-
-</div>
-
 
 <hr>
 
@@ -372,116 +303,6 @@
 <div id="organizationContent" class="card intro-content" style="display:none;">
 
 <h2>教學部組織架構</h2>
-
-
-<div class="director-search">
-
-
-<div class="search-item">
-
-<label>查詢方式</label>
-
-<select id="orgSearchType">
-
-<option>科別+日期</option>
-<option>科別+時間</option>
-<option>地點+日期</option>
-<option>地點+時間</option>
-<option>科別+地點+日期</option>
-<option>科別+地點+日期+時間</option>
-<option>依科別</option>
-<option>依地點</option>
-<option>依時間</option>
-
-</select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>科別</label>
-
-<select id="orgDepartment">
-
-<option>請選擇科別</option>
-
-<option>一般醫學內科</option>
-<option>全院</option>
-<option>內科</option>
-<option>神經科</option>
-<option>外科</option>
-<option>神經外科</option>
-<option>整形外科</option>
-<option>婦產科</option>
-<option>小兒科</option>
-<option>家醫科</option>
-<option>骨科</option>
-<option>復健科</option>
-<option>眼科</option>
-<option>耳鼻喉科</option>
-<option>牙科</option>
-<option>皮膚科</option>
-<option>泌尿科</option>
-<option>放射腫瘤科</option>
-<option>精神醫學部</option>
-
-</select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>地點</label>
-
-<input type="text" placeholder="請輸入地點">
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>時間</label>
-
-<input type="text" placeholder="例如：08:00">
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>年度</label>
-
-<select id="orgYearSelect"></select>
-
-</div>
-
-
-
-<div class="search-item">
-
-<label>月份</label>
-
-<select id="orgMonthSelect"></select>
-
-</div>
-
-
-
-<div class="search-item button-area">
-
-<button>查詢</button>
-
-</div>
-
-
-</div>
-
 
 <hr>
 

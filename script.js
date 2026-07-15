@@ -4,9 +4,14 @@ let currentMonth = today.getMonth();
 
 let currentYear = today.getFullYear();
 
+
 // 所有活動
 
-let events = JSON.parse(localStorage.getItem("events")) || {};
+let events =
+    JSON.parse(localStorage.getItem("events")) || {};
+
+
+// 儲存活動
 
 function saveEvents(){
 
@@ -17,285 +22,569 @@ function saveEvents(){
 
 }
 
+
+// 顯示行事曆
+
 function renderCalendar(){
 
-    const tbody = document.querySelector("#calendar tbody");
+    const tbody =
+        document.querySelector("#calendar tbody");
 
-    tbody.innerHTML="";
-
-    const title=document.getElementById("monthTitle");
-
-    title.innerHTML=currentYear+" 年 "+(currentMonth+1)+" 月";
-
-    let firstDay=new Date(currentYear,currentMonth,1).getDay();
-
-    let days=new Date(currentYear,currentMonth+1,0).getDate();
-
-    let row=document.createElement("tr");
-
-    // 空白
-
-    for(let i=0;i<firstDay;i++){
-
-        row.appendChild(document.createElement("td"));
-
-    }
-
-    for(let day=1;day<=days;day++){
-
-        if((firstDay+day-1)%7===0 && day!==1){
-
-            tbody.appendChild(row);
-
-            row=document.createElement("tr");
-
-        }
-
-        let td=document.createElement("td");
-
-        let date=document.createElement("div");
-
-        date.className="date";
-
-        date.innerHTML=day;
-
-        td.appendChild(date);
-
-        let key=currentYear+"-"+String(currentMonth+1).padStart(2,"0")+"-"+String(day).padStart(2,"0");
-
-        if(events[key]){
-
-            events[key].forEach(e=>{
-
-                let div=document.createElement("div");
-
-                div.className="event-item";
-
-                div.innerHTML=e;
-
-                td.appendChild(div);
-
-            });
-
-        }
-
-        row.appendChild(td);
-
-    }
-
-    while(row.children.length<7){
-
-        row.appendChild(document.createElement("td"));
-
-    }
-
-    tbody.appendChild(row);
-
-}
-
-renderCalendar();
-
-document.getElementById("prevMonth").onclick=function(){
-
-    currentMonth--;
-
-    if(currentMonth<0){
-
-        currentMonth=11;
-
-        currentYear--;
-
-    }
-
-    renderCalendar();
-
-}
-
-document.getElementById("nextMonth").onclick=function(){
-
-    currentMonth++;
-
-    if(currentMonth>11){
-
-        currentMonth=0;
-
-        currentYear++;
-
-    }
-
-    renderCalendar();
-
-}
-
-document.getElementById("addEvent").onclick=function(){
-
-    let date=document.getElementById("eventDate").value;
-
-    let text=document.getElementById("eventText").value;
-
-    if(date===""||text===""){
-
-        alert("請輸入日期及事項");
+    if(!tbody){
 
         return;
 
     }
 
-    if(!events[date]){
+    tbody.innerHTML = "";
 
-        events[date]=[];
+
+    const title =
+        document.getElementById("monthTitle");
+
+    if(title){
+
+        title.innerHTML =
+            currentYear +
+            " 年 " +
+            (currentMonth + 1) +
+            " 月";
 
     }
 
-    events[date].push(text);
 
-    saveEvents();
+    let firstDay =
+        new Date(
+            currentYear,
+            currentMonth,
+            1
+        ).getDay();
 
-    renderCalendar();
 
-    document.getElementById("eventText").value="";
+    let days =
+        new Date(
+            currentYear,
+            currentMonth + 1,
+            0
+        ).getDate();
+
+
+    let row =
+        document.createElement("tr");
+
+
+    // 月初空白
+
+    for(let i = 0; i < firstDay; i++){
+
+        row.appendChild(
+            document.createElement("td")
+        );
+
+    }
+
+
+    // 建立日期
+
+    for(let day = 1; day <= days; day++){
+
+        if(
+            (firstDay + day - 1) % 7 === 0 &&
+            day !== 1
+        ){
+
+            tbody.appendChild(row);
+
+            row =
+                document.createElement("tr");
+
+        }
+
+
+        let td =
+            document.createElement("td");
+
+
+        let date =
+            document.createElement("div");
+
+        date.className = "date";
+
+        date.textContent = day;
+
+        td.appendChild(date);
+
+
+        let key =
+            currentYear +
+            "-" +
+            String(currentMonth + 1)
+                .padStart(2, "0") +
+            "-" +
+            String(day)
+                .padStart(2, "0");
+
+
+        if(events[key]){
+
+            events[key].forEach(
+                function(eventText){
+
+                    let div =
+                        document.createElement("div");
+
+                    div.className =
+                        "event-item";
+
+                    div.textContent =
+                        eventText;
+
+                    td.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+        row.appendChild(td);
+
+    }
+
+
+    // 月底補空白
+
+    while(row.children.length < 7){
+
+        row.appendChild(
+            document.createElement("td")
+        );
+
+    }
+
+
+    tbody.appendChild(row);
 
 }
 
-function createYearMonth(yearID, monthID){
+
+// 初次顯示
+
+renderCalendar();
 
 
-    let yearSelect=document.getElementById(yearID);
+// 上一個月
+
+const prevMonthButton =
+    document.getElementById("prevMonth");
+
+if(prevMonthButton){
+
+    prevMonthButton.onclick = function(){
+
+        currentMonth--;
+
+        if(currentMonth < 0){
+
+            currentMonth = 11;
+
+            currentYear--;
+
+        }
+
+        renderCalendar();
+
+    };
+
+}
 
 
-    if(yearSelect){
+// 下一個月
 
-        for(let i=96;i<=115;i++){
+const nextMonthButton =
+    document.getElementById("nextMonth");
 
-            let option=document.createElement("option");
+if(nextMonthButton){
 
-            option.value=i;
+    nextMonthButton.onclick = function(){
 
-            option.text=i+" 年";
+        currentMonth++;
 
-            yearSelect.appendChild(option);
+        if(currentMonth > 11){
+
+            currentMonth = 0;
+
+            currentYear++;
+
+        }
+
+        renderCalendar();
+
+    };
+
+}
+
+
+// 新增活動
+
+const addEventButton =
+    document.getElementById("addEvent");
+
+if(addEventButton){
+
+    addEventButton.onclick = function(){
+
+        let date =
+            document.getElementById(
+                "eventDate"
+            ).value;
+
+
+        let text =
+            document.getElementById(
+                "eventText"
+            ).value.trim();
+
+
+        if(date === "" || text === ""){
+
+            alert("請輸入日期及事項");
+
+            return;
+
+        }
+
+
+        if(!events[date]){
+
+            events[date] = [];
+
+        }
+
+
+        events[date].push(text);
+
+
+        saveEvents();
+
+        renderCalendar();
+
+
+        document.getElementById(
+            "eventText"
+        ).value = "";
+
+    };
+
+}
+
+
+// 建立年度與月份
+
+function createYearMonth(
+    yearID,
+    monthID
+){
+
+    let yearSelect =
+        document.getElementById(yearID);
+
+
+    if(
+        yearSelect &&
+        yearSelect.options.length === 0
+    ){
+
+        for(let i = 96; i <= 115; i++){
+
+            let option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value = i;
+
+            option.text =
+                i + " 年";
+
+            yearSelect.appendChild(
+                option
+            );
 
         }
 
     }
 
 
+    let monthSelect =
+        document.getElementById(monthID);
 
-    let monthSelect=document.getElementById(monthID);
 
+    if(
+        monthSelect &&
+        monthSelect.options.length === 0
+    ){
 
-    if(monthSelect){
+        for(let i = 1; i <= 12; i++){
 
-        for(let i=1;i<=12;i++){
+            let option =
+                document.createElement(
+                    "option"
+                );
 
-            let option=document.createElement("option");
+            option.value = i;
 
-            option.value=i;
+            option.text =
+                i + " 月";
 
-            option.text=i+" 月";
-
-            monthSelect.appendChild(option);
+            monthSelect.appendChild(
+                option
+            );
 
         }
 
     }
 
 }
+
+
+// 查詢頁面的年度與月份
+
 createYearMonth(
     "yearSelect",
     "monthSelect"
 );
 
 
-createYearMonth(
-    "careYearSelect",
-    "careMonthSelect"
-);
-
-
-createYearMonth(
-    "orgYearSelect",
-    "orgMonthSelect"
-);
+// 隱藏所有內容
 
 function hideAllContent(){
 
-    let pages=[
+    let pages = [
+
+        "searchContent",
+
         "introContent",
+
         "trainingDirectorContent",
+
         "wholeCareContent",
+
         "organizationContent"
+
     ];
 
 
     pages.forEach(function(id){
 
-        let element=document.getElementById(id);
+        let element =
+            document.getElementById(id);
 
         if(element){
 
-            element.style.display="none";
+            element.style.display =
+                "none";
 
         }
 
     });
 
 
-    let news=document.querySelector(".news");
+    let news =
+        document.querySelector(".news");
 
     if(news){
 
-        news.style.display="none";
+        news.style.display =
+            "none";
 
     }
 
 
-    let calendar=document.querySelector(".calendar-layout");
+    let calendar =
+        document.querySelector(
+            ".calendar-layout"
+        );
 
     if(calendar){
 
-        calendar.style.display="none";
+        calendar.style.display =
+            "none";
+
+    }
+
+}
+
+// 顯示首頁
+
+function showHome(){
+
+    let pages = [
+
+        "searchContent",
+
+        "introContent",
+
+        "trainingDirectorContent",
+
+        "wholeCareContent",
+
+        "organizationContent"
+
+    ];
+
+
+    pages.forEach(function(id){
+
+        let element =
+            document.getElementById(id);
+
+        if(element){
+
+            element.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    let news =
+        document.querySelector(".news");
+
+    if(news){
+
+        news.style.display =
+            "flex";
+
+    }
+
+
+    let calendar =
+        document.querySelector(
+            ".calendar-layout"
+        );
+
+    if(calendar){
+
+        calendar.style.display =
+            "flex";
 
     }
 
 }
 
 
+// 顯示查詢頁面
+
+function showSearch(){
+
+    hideAllContent();
+
+
+    let content =
+        document.getElementById(
+            "searchContent"
+        );
+
+
+    if(content){
+
+        content.style.display =
+            "block";
+
+    }
+
+}
+
+
+// 顯示教學部簡介
 
 function showIntro(){
 
     hideAllContent();
 
-    document.getElementById("introContent").style.display="block";
+
+    let content =
+        document.getElementById(
+            "introContent"
+        );
+
+
+    if(content){
+
+        content.style.display =
+            "block";
+
+    }
 
 }
 
 
+// 顯示訓練計畫主持人
 
 function showTrainingDirector(){
 
     hideAllContent();
 
-    document.getElementById("trainingDirectorContent").style.display="block";
+
+    let content =
+        document.getElementById(
+            "trainingDirectorContent"
+        );
+
+
+    if(content){
+
+        content.style.display =
+            "block";
+
+    }
 
 }
 
 
+// 顯示全人照護
 
 function showWholeCare(){
 
     hideAllContent();
 
-    document.getElementById("wholeCareContent").style.display="block";
+
+    let content =
+        document.getElementById(
+            "wholeCareContent"
+        );
+
+
+    if(content){
+
+        content.style.display =
+            "block";
+
+    }
 
 }
 
 
+// 顯示組織架構
 
 function showOrganization(){
 
     hideAllContent();
 
-    document.getElementById("organizationContent").style.display="block";
+
+    let content =
+        document.getElementById(
+            "organizationContent"
+        );
+
+
+    if(content){
+
+        content.style.display =
+            "block";
+
+    }
 
 }
