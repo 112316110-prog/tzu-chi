@@ -157,14 +157,145 @@ document.getElementById("addEvent").onclick=function(){
 
 }
 
+function createYearMonth(yearID, monthID){
+
+
+    let yearSelect=document.getElementById(yearID);
+
+
+    if(yearSelect){
+
+        for(let i=96;i<=115;i++){
+
+            let option=document.createElement("option");
+
+            option.value=i;
+
+            option.text=i+" 年";
+
+            yearSelect.appendChild(option);
+
+        }
+
+    }
+
+
+
+    let monthSelect=document.getElementById(monthID);
+
+
+    if(monthSelect){
+
+        for(let i=1;i<=12;i++){
+
+            let option=document.createElement("option");
+
+            option.value=i;
+
+            option.text=i+" 月";
+
+            monthSelect.appendChild(option);
+
+        }
+
+    }
+
+}
+createYearMonth(
+    "yearSelect",
+    "monthSelect"
+);
+
+
+createYearMonth(
+    "careYearSelect",
+    "careMonthSelect"
+);
+
+
+createYearMonth(
+    "orgYearSelect",
+    "orgMonthSelect"
+);
+
+function hideAllContent(){
+
+    let pages=[
+        "introContent",
+        "trainingDirectorContent",
+        "wholeCareContent",
+        "organizationContent"
+    ];
+
+
+    pages.forEach(function(id){
+
+        let element=document.getElementById(id);
+
+        if(element){
+
+            element.style.display="none";
+
+        }
+
+    });
+
+
+    let news=document.querySelector(".news");
+
+    if(news){
+
+        news.style.display="none";
+
+    }
+
+
+    let calendar=document.querySelector(".calendar-layout");
+
+    if(calendar){
+
+        calendar.style.display="none";
+
+    }
+
+}
+
+
+
 function showIntro(){
 
-    // 隱藏首頁內容
-    document.querySelector(".news").style.display="none";
-    document.querySelector(".calendar-layout").style.display="none";
+    hideAllContent();
 
-
-    // 顯示教學部簡介
     document.getElementById("introContent").style.display="block";
+
+}
+
+
+
+function showTrainingDirector(){
+
+    hideAllContent();
+
+    document.getElementById("trainingDirectorContent").style.display="block";
+
+}
+
+
+
+function showWholeCare(){
+
+    hideAllContent();
+
+    document.getElementById("wholeCareContent").style.display="block";
+
+}
+
+
+
+function showOrganization(){
+
+    hideAllContent();
+
+    document.getElementById("organizationContent").style.display="block";
 
 }
