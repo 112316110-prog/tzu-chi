@@ -368,8 +368,6 @@ createYearMonth(
 );
 
 
-// 所有內容頁面 ID
-
 const contentPageIDs = [
 
     "searchContent",
@@ -378,10 +376,14 @@ const contentPageIDs = [
     "wholeCareContent",
     "organizationContent",
     "teachingMaterialContent",
-    "internalMedicineContent"
+    "internalMedicineContent",
+
+    "UGYContent",
+    "UGY6Content",
+    "PostBacContent",
+    "ResidentContent"
 
 ];
-
 
 // 隱藏所有內容
 
@@ -553,5 +555,34 @@ function showInternalMedicine(){
     showContent(
         "internalMedicineContent"
     );
+
+}
+
+
+
+function showUGY(){
+
+    showContent("UGYContent");
+
+}
+
+
+function showUGY6(){
+
+    showContent("UGY6Content");
+
+}
+
+
+function showPostBac(){
+
+    showContent("PostBacContent");
+
+}
+
+
+function showResident(){
+
+    showContent("ResidentContent");
 
 }
