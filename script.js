@@ -234,16 +234,30 @@ if(addEventButton){
 
     addEventButton.onclick = function(){
 
-        let date =
+        const eventDateInput =
             document.getElementById(
                 "eventDate"
-            ).value;
+            );
+
+        const eventTextInput =
+            document.getElementById(
+                "eventText"
+            );
+
+
+        if(!eventDateInput || !eventTextInput){
+
+            return;
+
+        }
+
+
+        let date =
+            eventDateInput.value;
 
 
         let text =
-            document.getElementById(
-                "eventText"
-            ).value.trim();
+            eventTextInput.value.trim();
 
 
         if(date === "" || text === ""){
@@ -270,9 +284,7 @@ if(addEventButton){
         renderCalendar();
 
 
-        document.getElementById(
-            "eventText"
-        ).value = "";
+        eventTextInput.value = "";
 
     };
 
@@ -356,36 +368,43 @@ createYearMonth(
 );
 
 
+// 所有內容頁面 ID
+
+const contentPageIDs = [
+
+    "searchContent",
+    "introContent",
+    "trainingDirectorContent",
+    "wholeCareContent",
+    "organizationContent",
+    "teachingMaterialContent",
+    "internalMedicineContent"
+
+];
+
+
 // 隱藏所有內容
 
 function hideAllContent(){
 
-    let pages = [
+    contentPageIDs.forEach(
+        function(id){
 
-        "searchContent",
-        "introContent",
-        "trainingDirectorContent",
-        "wholeCareContent",
-        "organizationContent",
-        "teachingMaterialContent",
-        "internalMedicineContent"
+            let element =
+                document.getElementById(id);
 
-    ];
+            if(element){
 
-    pages.forEach(function(id){
+                element.style.display = "none";
 
-        let element = document.getElementById(id);
-
-        if(element){
-
-            element.style.display = "none";
+            }
 
         }
+    );
 
-    });
 
-
-    let news = document.querySelector(".news");
+    let news =
+        document.querySelector(".news");
 
     if(news){
 
@@ -394,7 +413,10 @@ function hideAllContent(){
     }
 
 
-    let calendar = document.querySelector(".calendar-layout");
+    let calendar =
+        document.querySelector(
+            ".calendar-layout"
+        );
 
     if(calendar){
 
@@ -404,47 +426,55 @@ function hideAllContent(){
 
 }
 
+
+// 顯示指定內容
+
+function showContent(contentID){
+
+    hideAllContent();
+
+
+    let content =
+        document.getElementById(
+            contentID
+        );
+
+
+    if(content){
+
+        content.style.display = "block";
+
+    }
+
+}
+
+
 // 顯示首頁
 
 function showHome(){
 
-    let pages = [
-
-        "searchContent",
-        "introContent",
-        "trainingDirectorContent",
-        "wholeCareContent",
-        "organizationContent",
-        "teachingMaterialContent",
-        "internalMedicineContent"
-
-    ];
+    hideAllContent();
 
 
-    pages.forEach(function(id){
-
-        let element = document.getElementById(id);
-
-        if(element){
-
-            element.style.display = "none";
-
-        }
-
-    });
-
-
-    let news = document.querySelector(".news");
+    let news =
+        document.querySelector(".news");
 
     if(news){
+
         news.style.display = "flex";
+
     }
 
 
-    let calendar = document.querySelector(".calendar-layout");
+    let calendar =
+        document.querySelector(
+            ".calendar-layout"
+        );
 
     if(calendar){
+
         calendar.style.display = "flex";
+
     }
 
 }
@@ -454,21 +484,9 @@ function showHome(){
 
 function showSearch(){
 
-    hideAllContent();
-
-
-    let content =
-        document.getElementById(
-            "searchContent"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
+    showContent(
+        "searchContent"
+    );
 
 }
 
@@ -477,21 +495,9 @@ function showSearch(){
 
 function showIntro(){
 
-    hideAllContent();
-
-
-    let content =
-        document.getElementById(
-            "introContent"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
+    showContent(
+        "introContent"
+    );
 
 }
 
@@ -500,21 +506,9 @@ function showIntro(){
 
 function showTrainingDirector(){
 
-    hideAllContent();
-
-
-    let content =
-        document.getElementById(
-            "trainingDirectorContent"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
+    showContent(
+        "trainingDirectorContent"
+    );
 
 }
 
@@ -523,21 +517,9 @@ function showTrainingDirector(){
 
 function showWholeCare(){
 
-    hideAllContent();
-
-
-    let content =
-        document.getElementById(
-            "wholeCareContent"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
+    showContent(
+        "wholeCareContent"
+    );
 
 }
 
@@ -546,39 +528,30 @@ function showWholeCare(){
 
 function showOrganization(){
 
-    hideAllContent();
-
-
-    let content =
-        document.getElementById(
-            "organizationContent"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
+    showContent(
+        "organizationContent"
+    );
 
 }
 
 
+// 顯示教學教材
 
-function showTeachingMaterial() {
+function showTeachingMaterial(){
 
-    hideAllContent();
-
-    document.getElementById("teachingMaterialContent").style.display = "block";
+    showContent(
+        "teachingMaterialContent"
+    );
 
 }
 
+
+// 顯示內科部內容
 
 function showInternalMedicine(){
 
-    hideAllContent();
-
-    document.getElementById("internalMedicineContent").style.display = "block";
+    showContent(
+        "internalMedicineContent"
+    );
 
 }

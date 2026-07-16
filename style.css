@@ -75,6 +75,7 @@ nav li:hover{
     background:#e9f2ff;
 }
 
+
 .layout{
     width:95%;
     margin:20px auto;
@@ -85,6 +86,7 @@ nav li:hover{
 
 aside{
     width:250px;
+    flex-shrink:0;
     background:white;
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,.15);
@@ -97,6 +99,7 @@ aside h3{
     text-align:center;
     padding:12px;
 }
+
 
 .menu{
     padding:15px;
@@ -126,8 +129,33 @@ aside h3{
 }
 
 
+/* 側邊選單連結取消底線 */
+
+.menu a{
+    display:block;
+    color:inherit;
+    text-decoration:none;
+}
+
+.menu a:visited{
+    color:inherit;
+    text-decoration:none;
+}
+
+.menu a:hover{
+    color:inherit;
+    text-decoration:none;
+}
+
+.menu a:active{
+    color:inherit;
+    text-decoration:none;
+}
+
+
 main{
     flex:1;
+    min-width:0;
 }
 
 
@@ -169,7 +197,7 @@ main{
 table{
     width:100%;
     border-collapse:collapse;
-    table-layout:fixed;    
+    table-layout:fixed;
 }
 
 th{
@@ -186,9 +214,9 @@ td{
     padding:5px;
     vertical-align:top;
     position:relative;
-
     overflow-y:auto;
 }
+
 
 .event{
     margin-top:6px;
@@ -215,7 +243,6 @@ td{
 }
 
 
-
 footer{
     margin-top:20px;
     background:#003b78;
@@ -223,6 +250,7 @@ footer{
     text-align:center;
     padding:18px;
 }
+
 
 .calendar-header{
     display:flex;
@@ -256,7 +284,6 @@ footer{
     border-radius:5px;
     background:#d7ebff;
     font-size:12px;
-
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -272,6 +299,7 @@ footer{
     cursor:pointer;
 }
 
+
 /* ===== 行事曆 ===== */
 
 .calendar-layout{
@@ -282,12 +310,14 @@ footer{
 
 .calendar-area{
     flex:3;
+    min-width:0;
 }
 
 .form-area{
     flex:1;
     min-width:300px;
 }
+
 
 /* ===== 新增事項 ===== */
 
@@ -326,19 +356,6 @@ footer{
 }
 
 
-@media (max-width:900px){
-
-    .calendar-layout{
-        flex-direction:column;
-    }
-
-    .calendar-area,
-    .form-area{
-        width:100%;
-    }
-
-}
-
 .intro-content{
     line-height:1.8;
     padding:30px;
@@ -362,79 +379,47 @@ footer{
 
 
 .director-search{
-
     display:flex;
-
     flex-direction:row;
-
     align-items:flex-end;
-
     gap:15px;
-
     flex-wrap:wrap;
-
     margin-bottom:20px;
-
 }
-
 
 .search-item{
-
     display:flex;
-
     flex-direction:column;
-
 }
-
 
 .director-search label{
-
     font-weight:bold;
-
     color:#003b78;
-
     margin-bottom:5px;
-
 }
-
 
 .director-search input,
 .director-search select{
-
     padding:10px;
-
     border:1px solid #ccc;
-
     border-radius:5px;
-
     font-size:15px;
-
     min-width:150px;
-
 }
 
-
 .director-search button{
-
     padding:10px 25px;
-
     background:#003b78;
-
     color:white;
-
     border:none;
-
     border-radius:5px;
-
     cursor:pointer;
-
 }
 
 .director-search button:hover{
-
     background:#0b4da1;
-
 }
+
 
 .pdf-viewer{
     margin-top:30px;
@@ -445,99 +430,127 @@ footer{
     border-radius:8px;
 }
 
+
 .org-table,
 .staff-table,
 .work-table{
-
     width:100%;
     border-collapse:collapse;
     margin-top:20px;
-
+    table-layout:auto;
 }
-
 
 .org-table th,
 .org-table td,
 .staff-table td,
 .work-table th,
 .work-table td{
-
     border:1px solid #ccc;
     padding:12px;
     vertical-align:top;
-
+    width:auto;
+    height:auto;
+    overflow:visible;
 }
-
 
 .org-table th,
 .work-table th{
-
     background:#e8f1ff;
-
 }
-
 
 .staff-table td{
-
     width:50%;
     line-height:1.8;
-
 }
 
-
 .work-table td:nth-child(2){
-
     line-height:1.8;
     text-align:left;
-
 }
 
 
 h3{
-
     margin-top:30px;
-
 }
 
-.teaching-table{
 
+.teaching-table{
     width:100%;
     border-collapse:collapse;
     margin-top:20px;
-
+    table-layout:auto;
 }
 
 .teaching-table th,
 .teaching-table td{
-
     border:1px solid #ccc;
     padding:12px;
     vertical-align:top;
-
+    width:auto;
+    height:auto;
+    overflow:visible;
 }
 
 .teaching-table th{
-
     background:#0b6fa4;
     color:#fff;
     text-align:center;
-
 }
 
 .teaching-table td{
-
     line-height:2;
 }
 
 .teaching-table a{
-
     color:#0066cc;
     text-decoration:none;
-
 }
 
 .teaching-table a:hover{
-
     text-decoration:underline;
+}
+
+
+/* ===== 響應式版面 ===== */
+
+@media (max-width:900px){
+
+    .layout{
+        width:95%;
+        flex-direction:column;
+    }
+
+    aside{
+        width:100%;
+    }
+
+    .news{
+        flex-direction:column;
+    }
+
+    .calendar-layout{
+        flex-direction:column;
+    }
+
+    .calendar-area,
+    .form-area{
+        width:100%;
+        min-width:0;
+    }
+
+    .top-bar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+        padding:20px;
+    }
+
+    .search-area{
+        width:100%;
+    }
+
+    .search-area input{
+        width:100%;
+    }
 
 }
