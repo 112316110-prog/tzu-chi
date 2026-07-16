@@ -12,7 +12,7 @@
             "driver": "MySQL",
             "name": "Teaching Database Tiffany",
             "database": "teaching_web",
-            "username": "tiffany"
+            "username": "root"
         }
     ]
 }
